@@ -20,9 +20,16 @@
         and https://github.com/sveltejs/svelte/issues/5530
     -->
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
         @tailwind base;
         @tailwind components;
         @tailwind utilities;
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
         /* layer is needed here to override tailwind */
         @layer base {
             body {
@@ -47,10 +54,11 @@
 
             button {
                 @apply rounded-full bg-orange-600 px-12 py-3;
-                @apply font-sans text-sm uppercase text-white;
+                @apply text-xs font-bold uppercase tracking-widest text-white;
                 @apply transition-transform duration-[80ms];
-                @apply active:scale-95 active:transform;
+                @apply active:scale-95;
                 line-height: normal;
+                font-family: Arial, Helvetica, sans-serif;
             }
         }
     </style>
@@ -65,10 +73,10 @@
 ">
     <!-- container -->
 
-    <div class="absolute h-full w-1/2 translate-x-full transform overflow-hidden">
+    <div class="absolute h-full w-1/2 translate-x-full overflow-hidden">
         <!-- sign up -->
 
-        <form action="#" on:submit|preventDefault class={isSignIn ? `transform -translate-x-full` : ''}>
+        <form action="#" on:submit|preventDefault class={isSignIn ? `-translate-x-full` : ''}>
             <h1>Create Account</h1>
             <div class="my-5">
                 <Icon fa="facebook-f" />
@@ -86,7 +94,7 @@
     <div class="absolute h-full w-1/2 overflow-hidden">
         <!-- sign in -->
 
-        <form action="#" on:submit|preventDefault class={!isSignIn ? `transform translate-x-full` : ''}>
+        <form action="#" on:submit|preventDefault class={!isSignIn ? `translate-x-full` : ''}>
             <h1>Sign in</h1>
             <div class="my-5">
                 <Icon fa="facebook-f" />
@@ -104,7 +112,7 @@
     <div
         class="absolute left-1/2 h-full w-1/2 overflow-hidden text-center
             transition-transform duration-[0.6s]
-            {!isSignIn ? `transform -translate-x-full` : ''}
+            {!isSignIn ? `-translate-x-full` : ''}
     ">
         <!-- overlay -->
 
@@ -113,13 +121,13 @@
                 bg-gradient-to-r from-[#FF4B2B] to-[#FF416C]
                 text-white
                 transition-transform duration-[0.6s]
-                {!isSignIn ? `transform translate-x-1/2` : ''}
+                {!isSignIn ? `translate-x-1/2` : ''}
         ">
             <div
                 class="absolute flex h-full w-1/2
                     flex-col items-center justify-center px-10
                     transition-transform duration-[0.6s]
-                    {isSignIn ? `transform translate-x-[-20%]` : ''}
+                    {isSignIn ? `translate-x-[-20%]` : ''}
             ">
                 <!-- left -->
 
@@ -134,7 +142,7 @@
                 class={`absolute w-1/2 h-full px-10 right-0
                     flex flex-col justify-center items-center
                     transition-transform duration-[0.6s]
-                    ${!isSignIn ? `transform translate-x-[20%]` : ''}
+                    ${!isSignIn ? `translate-x-[20%]` : ''}
             `}>
                 <!-- right -->
 
