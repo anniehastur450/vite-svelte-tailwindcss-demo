@@ -4,7 +4,7 @@ module.exports = {
     semi: true,
     singleQuote: true,
     bracketSameLine: true,
-    trailingComma: 'none',
+    // trailingComma: 'none',
     printWidth: 120,
     plugins: ['prettier-plugin-svelte'],
     pluginSearchDirs: ['.'],
