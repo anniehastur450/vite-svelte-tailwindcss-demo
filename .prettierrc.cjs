@@ -8,5 +8,8 @@ module.exports = {
     printWidth: 120,
     plugins: ['prettier-plugin-svelte'],
     pluginSearchDirs: ['.'],
-    overrides: [{ files: '*.svelte', options: { parser: 'svelte' } }]
+    overrides: [
+        { files: '*.svelte', options: { parser: 'svelte' } },
+        { files: './*', options: { trailingComma: 'none' } }
+    ]
 };
